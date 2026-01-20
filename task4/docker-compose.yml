@@ -1,0 +1,19 @@
+services:
+  frontend: 
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports: 
+      - "9000:9000" # host 9000 -> container 9000
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
+    ports: 
+      - "5252:5252" # host 5252 -> container 5252
+  
+  helper:
+    image: nginx:latest
