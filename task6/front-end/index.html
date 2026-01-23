@@ -1,0 +1,24 @@
+
+<html>
+<h1 id="dynamic-content">Title</h1>
+
+<h1>
+    “We provide the best strategy to grow up your business”.
+</h1>
+
+<body>
+<script>
+    // Load dynamic data from the back-end on port 5252
+    $(function() {
+        $.ajax({
+            type: "GET",
+            url: "/api/hello",
+            success: function (data) {
+                console.log(data);
+                $('#dynamic-content').text(data);
+            }
+        });
+    });
+</script>
+</body>
+</html>
